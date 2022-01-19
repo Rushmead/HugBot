@@ -70,7 +70,7 @@ func main() {
 }
 
 func ready(s *discordgo.Session, event *discordgo.Ready) {
-	s.UpdateGameStatus(0, "Accepting hug requests")
+	s.UpdateGameStatus(0, "Accepting hug requests, DM me for more details!")
 }
 
 func SendHugRequest(username string, discordID string) {
