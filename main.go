@@ -10,6 +10,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"strings"
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
@@ -100,7 +101,7 @@ func handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Author.ID == BotId {
 		return
 	}
-	if m.Content == "hug" {
+	if strings.ToLower(m.Content) == "hug" {
 		discordID := m.Author.ID
 		if val, ok := UserCache[discordID]; ok {
 			if time.Now().Before(time.Unix(val, 0).Add(24 * time.Hour)) {
